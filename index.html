@@ -3,7 +3,7 @@
 
 <head>
     <title>Finance Portal </title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="FinancePortal.css" type="text/css" />
     <link rel="stylesheet" href="jquery-jvectormap-2.0.5.css" type="text/css" media="screen" />
     
@@ -22,9 +22,9 @@
         </div>
     </header>
     <div id="MapContainer">
-        <div id="world-map" style="display:block;"></div>
+        <div id="world-map" style="position: relative; display:block;"></div>
 
-        <div id="world-map2" style="display:none;"></div>
+        <div id="world-map2" style="position: relative; display:none;"></div>
     </div>
     <div>
         <button id="toggle" class="toggle" role="button" onclick=maptoggle()>API Toggle</button>
