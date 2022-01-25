@@ -1,14 +1,16 @@
 
 function maptoggle() {
 
-
+    var element = document.getElementById("toggle");
     if (document.getElementById('world-map').style.display == 'none') {
         document.getElementById('world-map').style.display = 'block';
         document.getElementById('world-map2').style.display = 'none';
+        element.classList.remove("buttonHighlight");
     }
     else {
         document.getElementById('world-map').style.display = 'none';
         document.getElementById('world-map2').style.display = 'block';
+        element.classList.add("buttonHighlight");
     }
 
 
@@ -103,40 +105,40 @@ $(function () {
 
             markers: currentMarkers,
 
-            labels: {
+labels: {
 
-                regions: {
-                    render: function (code) {
-
-                        return (jvm.Map.maps[map].paths[code].id);
-                    }
-                },
-                markers: {
-                    render: function (index) {
-                        var markerStr = "";
-                        markerStr += currentMarkers[index].id;
-                        return (markerStr);
-                    }
-
-
-                }
-
-
-            }
-
-        })
-});
+  regions: {
+    render: function(code){
+      return(jvm.Map.maps[map].paths[code].id);
+    },
+    offsets: function(code){
+      console.log([code.split('-')[1]]);
+      return {
+        'IN': [-12, -3],
+        'CN': [-10, 5],
+        'AU': [5, -9],
+        'JP': [5, 5],
+        'CA': [-28.5, 27],
+        'AR': [-8.7, 0],
+        'BR': [9, -12],
+        'US': [-287, 27],
+        'CL': [-3, 0],
+        'SG': [12, 0],
+        'MX': [0, 1.5],
+        'NZ': [2, 0]
+      }[code];
+    }
+  }
+}
+})
+  });
 
 $(function () {
 
     var LabelInfo = {
-        "IN": "API details",
-        "CN": "API details",
-        "SG": "API details",
-        "JP": "API details",
-        "US": "API details",
-        "CA": "API details",
-        "RU": "API details/"
+        'IN': "The Finance Partner for India has a financing tool with an API enabled. Please reach out to the Finance partner at 1-800-123-4567 to enable an API connection",
+        'JP': "The Finance Partner for Japan has a financing tool with an API enabled. Please reach out to the Finance partner at 1-800-123-4567 to enable an API connection",
+        'US': "The Finance Partner for United States has a financing tool with an API enabled. Please reach out to the Finance partner at 1-800-123-4567 to enable an API connection"
     };
     var map = "world_mill";
     var allMarkers1 = [{ latLng: [1.3521, 103.8198], style: { fill: '#1E4471' }, name: 'Singapore', id: 'SG' },
@@ -146,14 +148,20 @@ $(function () {
     $('#world-map2').vectorMap(
         {
             map: 'world_mill',
-
-
+            
             backgroundColor: 'WHITE',
 
             onRegionTipShow: function (event, label, code) {
-                label.html(
-
-                    '<b>' + label.html() + '</b></br>' + LabelInfo[code]
+               if(typeof LabelInfo[code] === "undefined")
+                {
+                    Regiontip = "";
+                }
+               else
+                {
+                    Regiontip = LabelInfo[code];
+                }
+               label.html(
+                '<b>'+label.html()+'</b></br>' + Regiontip
                 );
             },
 
@@ -194,7 +202,7 @@ $(function () {
                         PT: '#1E4471',
                         FR: '#1E4471',
                         IT: '#1E4471',
-                        // CO: '#6EBE4A',
+                        CO: '#1E4471',
                         PE: '#1E4471',
                         // CL: '#6EBE4A',
                         NL: '#1E4471',
@@ -210,38 +218,49 @@ $(function () {
 
 
 
-            markers: currentMarkers1
+            markers: currentMarkers1,
 
-            //    labels: {
-            //     markers: {
-            //         render: function(index) {
-            //           var markerStr = "";
-            //           markerStr += currentMarkers1[index].id;
-            //           console.log(markerStr);
-            //            return (markerStr);
-            //         }
+            labels: {
 
-
-            //     },
-            //       regions: {
-            //         render: function(code){
-            //             // console.log(jvm.Map.maps[map].paths[code].id)
-            //             return(LabelInfo[code] && "label");
-            //                 //   return(jvm.Map.maps[map].paths[code].id);
-
-            //         }
-            //       },
-            //       offsets: function(code){
-            //         return {
-            //           'HT': [150, 70], //doesn't work??
-            //           'HN': [0, 40]
-            //         }[code.split('-')[1]];
-            //       }
-
-            //   }
-
-        })
+                regions: {
+                    render: function(code){
+                      return(jvm.Map.maps[map].paths[code].id);         
+                },
+                offsets: function(code){
+//           console.log([code.split('-')[1]]);
+                return {
+            'IN': [616.4, 225.5],
+            'CN': [672, 192],
+            'AU': [760.2, 348],
+            'JP': [770, 188.5],
+            'CA': [150, 115],
+            'AR': [253, 390],
+            'BR': [294, 310],
+            'US': [163, 179],
+            'CL': [239.5, 385],
+            'SG': [693, 281],
+            'MX': [165.7, 225.5],
+            'CO': [238, 275],
+            'PE': [233, 308],
+            'PT': [401, 180],
+            'ES': [413, 179],
+            'FR': [427, 159],
+            'GB': [413.5, 133],
+            'BE': [432, 146],
+            'NL': [434, 140],
+            'DE': [447, 144],
+            'IT': [452.5, 174],
+            'RU': [683.5, 95],
+            'NZ': [855, 393]
+          }[code];
+        }
+      }
+    }
 
 })
+    
+  })
+
+
 
 
