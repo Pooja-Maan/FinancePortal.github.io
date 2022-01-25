@@ -6,6 +6,7 @@ svg {
 				width:50%;
 } */
 .jvectormap-container {
+    max-width: 100%;
     width: 198vh;
     height:65vh;
     margin-left:2%;
@@ -21,16 +22,32 @@ svg {
     stroke-width: 0.5;
 }
 
-.jvectormap-tip {
-    position: absolute;
+.jvectormap-label {
+    position: relative;
     display: none;
-    border: solid 1px #070000;
+    border: solid 1px #CDCDCD;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
     border-radius: 3px;
     background: #292929;
     color: white;
     font-family: sans-serif, Verdana;
     font-size: smaller;
     padding: 3px;
+    /* z-index:11; */
+ }
+
+.jvectormap-tip {
+    position: absolute;
+    display: none;
+    border: solid 1px #070000;
+    border-radius: 3px;
+    background: white;
+    color: black;
+    font-family: sans-serif, Verdana;
+    font-size: smaller;
+    padding: 3px;
+    max-width: 250px;
 }
 
 .jvectormap-zoomin, .jvectormap-zoomout, .jvectormap-goback {
