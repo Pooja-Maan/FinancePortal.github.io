@@ -70,36 +70,51 @@ $(function () {
                     fill: 'white'
                 }
             },
-            series: {
-                regions: [{
-                    values: {
-                        IN: '#1E4471',
-                        CN: '#1E4471',
-                        SG: '#1E4471',
-                        JP: '#1E4471',
-                        US: '#1E4471',
-                        CA: '#1E4471',
-                        RU: '#1E4471',
-                        AU: '#1E4471',
-                        MX: '#1E4471',
-                        NZ: '#1E4471',
-                        GB: '#1E4471',
-                        ES: '#1E4471',
-                        PT: '#1E4471',
-                        FR: '#1E4471',
-                        IT: '#1E4471',
-                        CO: '#6EBE4A',
-                        PE: '#1E4471',
-                        CL: '#6EBE4A',
-                        NL: '#1E4471',
-                        BE: '#1E4471',
-                        DE: '#1E4471',
-                        BR: '#1E4471',
-                        AR: "#6EBE4A"
-                    }
-
-                }]
+          series: {
+            regions: [{
+            scale: {
+                Captive: '#1E4471',
+                PoC: '#6EBE4A'
             },
+        values: { 
+        IN: 'Captive',
+        CN: 'Captive',
+        SG: 'Captive',
+        JP: 'Captive',
+        US: 'Captive',
+        CA: 'Captive',
+        RU: 'Captive',
+        AU: 'Captive',
+        MX: 'Captive',
+        NZ: 'Captive',
+        GB: 'Captive',
+        ES: 'Captive',
+        PT: 'Captive',
+        FR: 'Captive',
+        IT: 'Captive',
+        CO: 'PoC',
+        PE: 'Captive',
+        CL: 'PoC',
+        NL: 'Captive',
+        BE: 'Captive',
+        DE: 'Captive',
+        BR: 'Captive',
+        AR: "PoC"
+        },
+
+      legend: {
+        // horizontal: true,
+        // title: 'Color',
+        labelRender: function(v){
+          return {
+            Captive: 'Captive Countries',
+            PoC: 'CHUC Countires(PoC)'
+          }[v];
+        }
+      }
+      
+  }]
+},
 
 
 
