@@ -138,7 +138,8 @@ $(function () {
     var LabelInfo = {
         'IN': "The Finance Partner for India has a financing tool with an API enabled. Please reach out to the Finance partner at 1-800-123-4567 to enable an API connection",
         'JP': "The Finance Partner for Japan has a financing tool with an API enabled. Please reach out to the Finance partner at 1-800-123-4567 to enable an API connection",
-        'US': "The Finance Partner for United States has a financing tool with an API enabled. Please reach out to the Finance partner at 1-800-123-4567 to enable an API connection"
+        'US': "The Finance Partner for United States has a financing tool with an API enabled. Please reach out to the Finance partner at 1-800-123-4567 to enable an API connection",
+        'RU': "The Finance Partner for Russia has a financing tool with an API enabled. Please reach out to the Finance partner at 1-800-123-4567 to enable an API connection"
     };
     var map = "world_mill";
     var allMarkers1 = [{ latLng: [1.3521, 103.8198], style: { fill: '#1E4471' }, name: 'Singapore', id: 'SG' },
